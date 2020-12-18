@@ -151,8 +151,8 @@ module "aurora_secondary" {
   db_master_password        = null
   instance_class            = "db.r5.large"
   family                    = "aurora-postgresql11"
-  tags 						     = map("Created-By", "Emmanuel Torrado")
-  depends_on                = [odule.aurora_primary]
+  tags 						          = map("Created-By", "Emmanuel Torrado")
+  depends_on                = [module.aurora_primary]
 }
 ```
 
