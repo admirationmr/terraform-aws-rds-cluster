@@ -204,8 +204,21 @@ module "aurora_secondary" {
 | iam\_roles | A List of ARNs for the IAM roles to associate to the RDS Cluster. | `list(string)` | `[]` | no|
 | iam\_roles | Type of the instance, for aurora global database only valid types are db.r4 and db.r5 | `string` | `` | no|
 | monitoring\_role\_arn | IAM role for RDS to send enhanced monitoring metrics to CloudWatch | `string` | `""` | no|
-| name| Name for the resources  | `string` | `` | yes|
+| name| Name for the resources  | `string` |  | yes|
 | publicly\_accessible | Whether if the DB needs to be Public or Private  | `bool` | `false` | no|
 | preferred\_backup\_window | The daily time range in UTC during which automated backups are created.  | `string` | `"09:00-10:00"` | no|
 | preferred\_maintenance\_window | The weekly time range in UTC during which system maintenance can occur.  | `string` | `"sun:10:00-sun:11:00"` | no|
 | rds\_cluster\_parameter\_group\_name | You can specify a cluster parameter  group that already exist if you dont want to create one new, if empty it will create a new one  | `string` | `""` | no|
+| replica\_count | Number of reader nodes to create.  | `number` | `1` | no|
+| secret\_description | Enter a description for your secret vault  | `string` | `""` | no|
+| secret\_name | The name of your secret where your master password of the RDS cluster will be stored in  | `string` | `aurora-global-rds-secret` | no|
+| storage\_encrypted | Specifies whether the DB cluster is encrypted. If set to true, you must to specify a KMS key ID or use the default from AWS. | `bool` | `false` | no|
+| subnets | List of the subnets ID to use  | `list(string)` | | yes|
+| skip\_final\_snapshot | Should a final snapshot be created on cluster destroy | `bool` | `true` | no|
+| snapshot\_identifier | Should a final snapshot be created on cluster destroy | `string` | `""` | no|
+| source\_region | Source Region of primary cluster, needed when using encrypted storage and region replicasy | `string` | `""` | yes|
+| security\_group\_description | The description of the security group | `string` | `Control traffic to/from RDS Aurora` | no|
+| tags | A map of tags to add to all resources. | `map(string)` | `{ "Created-By" = "DevOps" }` | no|
+| username| Master db username. | `string` | `master_admin` | no|
+| vpc\_security\_group\_ids | List of VPC security groups to associate to the cluster in addition to the SG we create in this module | `list(string` | `[]` | no|
+| vpc\_id | vpc id for the current environment you want to deploy in | `string` |  | yes |
