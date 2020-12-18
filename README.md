@@ -202,6 +202,10 @@ module "aurora_secondary" {
 | instance\_name\_ | The instance name to identify the replicas | `string` | `aurora-replica` | no|
 | iam\_database\_authentication\_enabled | Specifies whether IAM Database authentication should be enabled or not | `bool` | `false` | no|
 | iam\_roles | A List of ARNs for the IAM roles to associate to the RDS Cluster. | `list(string)` | `[]` | no|
-| iam\_roles | Type of the instance, for aurora global database only valid types are db.r4 and db.r5 | `string` | `` | yes|
-| monitoring\_role\_arn | IAM role for RDS to send enhanced monitoring metrics to CloudWatch | `string` | `""` | yes
-|
+| iam\_roles | Type of the instance, for aurora global database only valid types are db.r4 and db.r5 | `string` | `` | no|
+| monitoring\_role\_arn | IAM role for RDS to send enhanced monitoring metrics to CloudWatch | `string` | `""` | no|
+| name| Name for the resources  | `string` | `` | yes|
+| publicly\_accessible | Whether if the DB needs to be Public or Private  | `bool` | `false` | no|
+| preferred\_backup\_window | The daily time range in UTC during which automated backups are created.  | `string` | `"09:00-10:00"` | no|
+| preferred\_maintenance\_window | The weekly time range in UTC during which system maintenance can occur.  | `string` | `"sun:10:00-sun:11:00"` | no|
+| rds\_cluster\_parameter\_group\_name | You can specify a cluster parameter  group that already exist if you dont want to create one new, if empty it will create a new one  | `string` | `""` | no|
