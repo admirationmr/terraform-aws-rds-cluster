@@ -199,3 +199,9 @@ module "aurora_secondary" {
 | family | The family of the DB cluster parameter group| `string` | `aurora-postgresql11` | no|
 | final\_snapshot\_identifier | The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too.| `bool` | `true` | no|
 | global\_cluster\_identifier | The global cluster identifier specified on aws_rds_global_cluster.| `string` | `""` | no|
+| instance\_name\_ | The instance name to identify the replicas | `string` | `aurora-replica` | no|
+| iam\_database\_authentication\_enabled | Specifies whether IAM Database authentication should be enabled or not | `bool` | `false` | no|
+| iam\_roles | A List of ARNs for the IAM roles to associate to the RDS Cluster. | `list(string)` | `[]` | no|
+| iam\_roles | Type of the instance, for aurora global database only valid types are db.r4 and db.r5 | `string` | `` | yes|
+| monitoring\_role\_arn | IAM role for RDS to send enhanced monitoring metrics to CloudWatch | `string` | `""` | yes
+|
