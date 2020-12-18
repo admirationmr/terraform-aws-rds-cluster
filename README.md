@@ -56,8 +56,8 @@ module "aurora_primary" {
   subnets                   = ["subnet-001765f8fb9f94b92", "subnet-01b0a16127c1c6f2b"]
   replica_count             = 1
   instance_class            = "db.r5.large" 
-  family     				= "aurora-postgresql11"
-  depends_on 				= [aws_rds_global_cluster.main]
+  family     				        = "aurora-postgresql11"
+  depends_on 				        = [aws_rds_global_cluster.main]
 }
 
 module "aurora_secondary" {
@@ -78,7 +78,7 @@ module "aurora_secondary" {
   db_master_password        = null
   instance_class            = "db.r5.large"
   family                    = "aurora-postgresql11"
-  tags 						= map("Created-By", "Emmanuel Torrado")
+  tags 						          = map("Created-By", "Emmanuel Torrado")
   depends_on                = [module.aurora_primary]
 }
 ```
