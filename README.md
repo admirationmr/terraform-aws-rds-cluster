@@ -175,6 +175,7 @@ module "aurora_secondary" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | apply\_immediately | Determines whether or not any DB modifications are applied immediately, or during the maintenance window. | `bool` | `false` | no |
+| backup\_retention\_period | How long to keep backups for (in days) | `number` | `3` | no |
 | create\_cluster | Controls if the RDS cluster should be created | `bool` | `true` | yes |
 | create\_secret | Control if you need to create a secret, if false, it will just not store the admin password and user in the secret manager | `bool` | `"true"` | no |
 | create\_db\_subnet | Controls if the DB Subnet Group should be created, if set to false you can use an existing one | `bool` | `true` | no |
