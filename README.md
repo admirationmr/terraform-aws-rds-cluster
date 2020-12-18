@@ -66,7 +66,7 @@ module "aurora_secondary" {
   providers = {
     aws = aws.east
   }
-  name = 					"aurora-secondary"
+  name                      = "aurora-secondary"
   enable_global_cluster     = true
   source_region             = "us-west-2"
   global_cluster_identifier = aws_rds_global_cluster.main.id
@@ -139,7 +139,7 @@ module "aurora_secondary" {
   providers = {
     aws = aws.east
   }
-  name = 					"aurora-secondary"
+  name                      = "aurora-secondary"
   enable_global_cluster     = true
   source_region             = "us-west-2"
   global_cluster_identifier = aws_rds_global_cluster.main.id
